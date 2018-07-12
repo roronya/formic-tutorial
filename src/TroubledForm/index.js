@@ -23,16 +23,16 @@ class PermissionSelectorForm extends React.Component {
       <div>
         <form>
           {["read", "write", "exec"].map(permission => (
-            <div>
+            <div key={`pure-${permission}`}>
               <input
                 type="checkbox"
-                id="read"
-                name="read"
+                id={`pure-${permission}`}
+                name={permission}
                 value={this.state.permission_checked[permission]}
                 checked={this.state.permission_checked[permission]}
                 onChange={e => this.handleChange(permission, e.target.checked)}
               />
-              <label htmlFor={permission}>{permission}</label>
+              <label htmlFor={`pure-${permission}`}>{permission}</label>
             </div>
           ))}
         </form>
